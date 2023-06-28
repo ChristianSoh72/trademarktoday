@@ -1,7 +1,8 @@
-const nodemailer = require('nodemailer');
-
-export default function handler(req, res) {
-    const transporter = nodemailer.createTransport({
+import Nodemailer, { SentMessageInfo, SendMailOptions } from 'nodemailer';
+import { Request, Response } from 'express';
+export default function handler(req: Request, res: Response): void {
+    const { email, code } = req.query;
+    const transporter = Nodemailer.createTransport({
         // host: 'smtp.gmail.com',
         // port: 465,
         // service: 'gmail',
@@ -14,10 +15,10 @@ export default function handler(req, res) {
             pass: 'czmlhgojnsphzisf'
         }
     });
-    const mailOptions = {
+    const mailOptions:SendMailOptions = {
         from: 'lightforest07020410@gmail.com',
-        to: 'milkyway464203@gmail.com',
-        subject: 'Test email',
+        to: email as string,
+        subject: 'Trademark today verfication',
         html: `<div width="100%" style="margin:0;background-color:#f0f2f3">
 
         <div style="margin:auto;max-width:600px;padding-top:50px" class="m_-8293280590268341754email-container">
@@ -59,7 +60,7 @@ export default function handler(req, res) {
                         <td
                             style="background-color:#fff;color:#444;font-family:'Amazon Ember','Helvetica Neue',Roboto,Arial,sans-serif;font-size:14px;line-height:140%;padding:25px 35px;padding-top:0;text-align:center">
                             <div style="font-weight:bold;padding-bottom:15px">Verification code</div>
-                            <div style="color:#000;font-size:36px;font-weight:bold;padding-bottom:15px">123456</div>
+                            <div style="color:#000;font-size:36px;font-weight:bold;padding-bottom:15px">${code}</div>
                             <div>(This code is valid for 10 minutes)</div>
                         </td>
                     </tr>
@@ -94,7 +95,7 @@ export default function handler(req, res) {
         </div>
     </div>`
     };
-    transporter.sendMail(mailOptions, (error, info) => {
+    transporter.sendMail(mailOptions, (error: Error | null, info: SentMessageInfo) => {
         if (error) {
             console.log(error);
             res.status(200).json({ message: error })
@@ -103,5 +104,5 @@ export default function handler(req, res) {
             res.status(200).json({ message: info.response })
         }
     });
-//{"message":"250 2.0.0 OK  1687813731 hn8-20020a05600ca38800b003fa722e8b48sm11760285wmb.32 - gsmtp"}
+    //{"message":"250 2.0.0 OK  1687813731 hn8-20020a05600ca38800b003fa722e8b48sm11760285wmb.32 - gsmtp"}
 }

@@ -5,12 +5,8 @@ import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import '../css/main.css'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import MySVG from '../components/svg'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import Image from 'next/image'
-import { CircularProgress } from '@mui/material'
 
 export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -28,10 +24,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const title = `Trademark Checker`
 
   const description = 'Trademark filing for IP Australia'
-
-  // const url = 'https://justboil.github.io/admin-one-react-tailwind/'
-
-  // const image = `https://static.justboil.me/templates/one/repo-tailwind-react.png`
 
   const imageWidth = '1920'
 
@@ -79,6 +71,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
               gtag('config', 'UA-130795909-1');
             `}
             </Script>
+            <Script src="https://apis.google.com/js/platform.js" async defer></Script>
             <MySVG />
             {/* ****************************************************************** */}
             {/* <div id="main-start-section" className='flex flex-col'>

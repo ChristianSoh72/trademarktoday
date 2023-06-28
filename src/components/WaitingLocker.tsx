@@ -1,6 +1,6 @@
 import { CircularProgress } from "@mui/material"
 
-const WaitingLocker = ({waiting}:{waiting:boolean}) => {
+const WaitingLocker = ({waiting,msg="Waiting"}:{waiting:boolean,msg?:string}) => {
     return (
         <div
             style={{
@@ -22,7 +22,7 @@ const WaitingLocker = ({waiting}:{waiting:boolean}) => {
         >
             <div className='w-1/4 h-1/4 bg-white rounded-md flex flex-col justify-center items-center'>
                 <CircularProgress color="secondary" />
-                <p className='text-[18px] font-mont leading-7'>Adding Trade Mark...</p>
+                <p className='text-[18px] font-mont leading-7'>{msg}...</p>
             </div>
         </div>
     )

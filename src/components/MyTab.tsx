@@ -56,7 +56,7 @@ const MyTab = ({ titles, props:{value,setValue}, children }: {
         {titles.map((title, index) => (<Tab key={index} label={title} {...a11yProps(index)} />))}
       </Tabs>
       {/* </AppBar> */}
-        <style> {`.react-swipeable-view-container{transition: height .5s, transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s!important; height:${value==0?"200px":"400px"};}`} </style>
+        {/* <style> {`.react-swipeable-view-container{transition: height .5s, transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s!important; height:${value==0?"200px":"400px"};}`} </style> */}
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
