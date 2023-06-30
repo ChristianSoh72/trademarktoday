@@ -10,7 +10,7 @@ const Header = () => {
                         <div className='w-0 border-r hidden md:block border-white'></div>
                         <button className=' hidden md:block'><Image src="/tmchecker.svg" loading='lazy' alt="Logo" width={150.5} height={48} /></button>
                     </div>
-                    <nav>
+                    <nav className="mr-36 2xl:mr-0">
                         <button className='px-3 py-2'>
                             <div className='flex flex-col md:flex-row gap-1 text-sm items-center'>
                                 <div className='w-8 h-8 py-1 flex items-center text-center'><svg className='w-6 h-6 mx-auto stroke-white fill-none'><use href="#faq"></use></svg></div> Help

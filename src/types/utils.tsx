@@ -1,3 +1,4 @@
+import db from '@/db/db';
 import bcrypt from 'bcryptjs'
 export const JWT_SIGN_KEY = 'de98hw9ew0hbmj6v8sd9w';
 export const hash = async (password: string) => {

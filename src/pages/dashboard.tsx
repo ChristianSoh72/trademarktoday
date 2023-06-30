@@ -5,17 +5,12 @@ import ServerSideProps from '@/layout/ServerSideProps';
 import Link from 'next/link';
 import Image from 'next/image';
 import PortalClass from '@/components/PortalClass';
+import UserInfoAvatar from '@/components/UserInfoAvatar';
 const Dashboard = ({ user }: { user: User }) => {
 
   return (
     <>
-      {user && (
-        <div className='flex gap-2 justify-center items-center absolute top-4 right-4 text-white'>
-          <h2>{user.name} </h2>
-          <Image className='rounded-full' src={user.picture} alt="logo" loading='lazy' onError={(e) => e.currentTarget.src = "/no-avatar.png"} width={40} height={40} />
-        </div>
-      )}
-
+      {user && <UserInfoAvatar user={user}/>}
       <main className='max-w-7xl mx-auto px-6 py-4'>
         <div className="grid gap-y-6">
           <h1 className='font-mont text-3xl'>Dashboard Test</h1>
